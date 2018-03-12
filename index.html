@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Electron with CodeMirror</title>
+	<style>
+		.menu {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-color: #343538;
+			/* #1a1b23;*/
+			width: 60px;
+			height: 100%;
+		}
+
+		.menu a {
+			padding-left: 20px;
+			margin-bottom: 20px;
+			color: #fff;
+			font-weight: 800;
+			text-decoration: none;
+		}
+
+		.content {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 60px;
+			background-color: #fff;
+			width: 500px;
+			height: 300px;
+			background-color: slategrey;
+		}
+	</style>
+	<link rel="stylesheet" href="lib/codemirror.css">
+</head>
+
+<body style=" margin:0px;">
+	<div class="menu">
+		<div>
+			<a ui-sref="main">
+				<i class="icon-collapse icon-large"></i>
+			</a>
+		</div>
+	</div>
+	<div id="file" class="content">
+	</div>
+
+	<script src="lib/codemirror.js"></script>
+	<script src="mode/javascript/javascript.js"></script>	
+	<script type="application/javascript">
+		window.onload = function () {
+				var myCodeMirror = CodeMirror(document.getElementById("file"), {
+					value: "function myScript(){ return 100; }\n",
+					lineNumbers: true,
+					mode: "javascript"
+				});
+			};
+	</script>
+</body>
+
+</html>
